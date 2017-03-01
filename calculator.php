@@ -1,15 +1,16 @@
 <?php
-
 $sum = 0;
-foreach($argv as $key => $value)
+foreach($argv as $key => $val)
 { 
-    if($key > 0 && is_numeric($value))
-      $sum += $value;
-    else if(is_string($value)){
-      $array = preg_split('/[\n,]*/', $value);
-      foreach ($array as $val) {
-        if(is_numeric($val))
-          $sum += $val;
+    if(is_numeric($val))
+      $sum += $val;
+    else if(is_string($val) && $key > 1){
+      $delimiter = substr($val, 2,1);
+      $value = substr($val, 5,strlen($val));
+      $array = explode($delimiter, $value);
+      foreach ($array as $vals) {
+        if(is_numeric($vals))
+          $sum += $vals;
       }
     }
 
