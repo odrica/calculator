@@ -2,17 +2,18 @@
 
 $sum = 0;
 foreach($argv as $key => $value)
-{
-  	if($key > 0 && is_numeric($value))
-  		$sum += $value;
-  	else if(is_string($value)){
-  		$array = explode(',', $value);
-  		foreach ($array as $k => $val) {
-  			$sum += $val;
-  		}
-  	}
+{ 
+    if($key > 0 && is_numeric($value))
+      $sum += $value;
+    else if(is_string($value)){
+      $array = preg_split('/[\n,]*/', $value);
+      foreach ($array as $val) {
+        if(is_numeric($val))
+          $sum += $val;
+      }
+    }
 
 }
 
-echo $sum."\n";
+echo $sum."\nddd";
 ?>
