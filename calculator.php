@@ -15,5 +15,5 @@ foreach($argv as $key => $value)
 
 }
 
-echo $sum."\nddd";
+echo $sum."\n";
 ?>
