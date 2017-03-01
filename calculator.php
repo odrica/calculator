@@ -1,5 +1,6 @@
 <?php
 $sum = 0;
+$string = false;
 foreach($argv as $key => $val)
 { 
     if(is_numeric($val))
@@ -10,14 +11,17 @@ foreach($argv as $key => $val)
       $array = explode($delimiter, $value);
       foreach ($array as $vals) {
         if($vals < 0){
-          echo "Error: Negative numbers not allowed."."\n";
-          exit();
+          $string .= $vals.", ";
         }
         if(is_numeric($vals))
           $sum += $vals;
       }
     }
 
+}
+if($string){
+  echo "Error: Negative  numbers (".rtrim($string, ", ").") not allowed."."\n";
+  exit();
 }
 
 echo $sum."\n";
