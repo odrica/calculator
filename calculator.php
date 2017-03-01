@@ -9,6 +9,10 @@ foreach($argv as $key => $val)
       $value = substr($val, 5,strlen($val));
       $array = explode($delimiter, $value);
       foreach ($array as $vals) {
+        if($vals < 0){
+          echo "Error: Negative numbers not allowed."."\n";
+          exit();
+        }
         if(is_numeric($vals))
           $sum += $vals;
       }
